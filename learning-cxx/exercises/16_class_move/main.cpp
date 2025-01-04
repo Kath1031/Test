@@ -24,6 +24,7 @@ public:
     // TODO: 实现移动构造器
     DynFibonacci(DynFibonacci && other) noexcept {
         std::swap(this->cache,other.cache);
+        other.cache = nullptr;
         std::swap(this->cached,other.cached);
         std::swap(this->size, other.size);
     }
@@ -36,6 +37,7 @@ public:
             return *this;
         }
         std::swap(this->cache,other.cache);
+        other.cache = nullptr;
         std::swap(this->cached,other.cached);
         std::swap(this->size, other.size);
         return *this;
