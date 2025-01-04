@@ -32,6 +32,9 @@ public:
     // NOTICE: ⚠ 注意移动到自身问题 ⚠
     DynFibonacci &operator=(DynFibonacci &&other) noexcept 
     {
+        if(&other == this) {
+            return *this;
+        }
         std::swap(this->cache,other.cache);
         std::swap(this->cached,other.cached);
         std::swap(this->size, other.size);
